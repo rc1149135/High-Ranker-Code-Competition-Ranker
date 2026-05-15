@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
 import problem from "./models/problem.js";
+import dotenv from "dotenv";
 
-const MONGO_URI = "mongodb://127.0.0.1:27017/highRanker";
+dotenv.config();
+
+const MONGO_URI = process.env.MONGO_URI;
 
 const problems = [
   {
