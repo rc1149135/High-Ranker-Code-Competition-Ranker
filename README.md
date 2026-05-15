@@ -1,4 +1,4 @@
-# CodeSpace: The Ultimate CP Platform 🚀
+# CodeSpace: The Ultimate Coding Platform 🚀
 
 CodeSpace is a high-fidelity competitive programming and institution-level analytics platform. It aggregates student performance from multiple platforms (LeetCode, Codeforces, etc.), provides a unified leaderboard, and features a cinematic real-time "Combat" system with an AI Code Auditor.
 
