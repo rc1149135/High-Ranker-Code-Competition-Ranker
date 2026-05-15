@@ -24,6 +24,15 @@ import TemperMessage from "./models/temperMessage.js";
 import TemperGroup from "./models/temperGroup.js";
 
 const app = express();
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, ngrok-skip-browser-warning");
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(204);
+    }
+    next();
+});
 const port = process.env.PORT || 8080;
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
@@ -110,7 +119,6 @@ connectDB().then(async () => {
 
 
 app.use(express.json());
-app.use(cors());
 
 app.use("/auth", authRoutes);
 app.use("/api", platformRoutes);
