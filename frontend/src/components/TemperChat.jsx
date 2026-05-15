@@ -2,7 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 import api, { BASE_URL } from "../api/axios";
 
-const socket = io(BASE_URL);
+const socket = io(BASE_URL, {
+  transports: ["websocket"],
+  extraHeaders: {
+    "ngrok-skip-browser-warning": "true"
+  }
+});
 
 function TemperChat({ slug, currentUser }) {
   const [messages, setMessages] = useState([]);

@@ -38,7 +38,11 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
         origin: "*",
-    }
+        methods: ["GET", "POST"],
+        allowedHeaders: ["ngrok-skip-browser-warning"],
+        credentials: true
+    },
+    allowEIO3: true
 });
 
 io.on("connection", (socket) => {
